@@ -34,8 +34,8 @@ syntax enable
 colorscheme tender
 
 " Set line number colors
-highlight LineNr ctermfg=red guifg=red
-highlight CursorLineNr ctermfg=red guifg=red
+highlight LineNr ctermfg=yellow guifg=yellow
+highlight CursorLineNr ctermfg=yellow  guifg=yellow
 
 " Enable norminette-vim (and gcc)
 let g:syntastic_c_checkers = ['norminette', 'gcc']
@@ -47,9 +47,6 @@ let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'lib
 
 " Pass custom arguments to norminette (this one ignores 42header)
 let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
-
-" Check errors when opening a file (disable to speed up startup time)
-let g:syntastic_check_on_open = 1
 
 " Enable error list
 let g:syntastic_always_populate_loc_list = 1
@@ -64,3 +61,19 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0	 
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+xnoremap <leader>p "_dP
+
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+nnoremap <Leader>r :%s///g<Left><Left>
+nnoremap <Leader>rc :%s///gc<Left><Left><Left>
